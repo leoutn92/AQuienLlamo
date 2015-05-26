@@ -1,5 +1,6 @@
 from MainAQL import *
 class Vista:
+ 
  def genDic(self,*keys):
   ndic=dict()
   for i in keys:
@@ -24,7 +25,51 @@ class Vista:
 class VistaPrincipal(Vista):
  def registrarCliente(self):
   print('Bienvenido al registro de clientes de A Quien Llamo')
-  dic=self.genDic('NomUsuario','Contrasenia','Nombre','Apellido','Direccion','Telefono','Email')
+  NomUsuario=input('Ingrese nombre usuario')
+  Contrasenia=input('Ingrese nombre usuario')
+  Nombre=input('Ingrese nombre')
+  while not self.soloLetras(Nombre):
+  	print('Solo se permiten letras')
+  	Nombre=input('Ingrese nombre: ')
+  Apellido=input('Ingrese Apellido: ')
+  while not self.soloLetras(Apellido):
+  	print('Solo se permiten letras')
+  	Apellido=input('Ingrese Apellido: ')
+  Pais=input('Ingrese pais')
+  while not self.soloLetras(Pais):
+  	print('Solo se permiten letras')
+  	Pais=input('Ingrese pais')
+  Provincia=input('Ingrese provincia')
+  while not self.soloLetras(provincia):
+  	print('Solo se permiten letras')
+  	Provincia=input('Ingrese provincia')
+  Localidad=input('Ingrese localidad')
+  while not self.soloLetras(Localidad):
+  	print('Solo se permiten localidad')
+  	Localidad=input('Ingrese localidad')
+  Calle=input('Ingrese direccion')
+  while not self.soloLetras(Calle):
+  	print('Solo se permiten letras')
+  	Calle=input('Ingrese calle')
+  Direccion=calle
+  Numero=input('Ingrese numero')
+  while not self.soloNumeros(Numero):
+  	print('Solo se permiten nomeros')
+  	Numero=input('Ingrese numero')
+  Direccion=Direccion+' '+Numero
+  ops=self.ops('Desea ingrezar cliente? (si/no)'.'si','no')
+  if ops=='si':
+  	piso=input('Ingrese piso')
+    Direccion=Direccion+' '+piso
+  Telefono=input('Ingrese numero de telefono')
+  while not isTelphone(Telefono):
+  	print('Solo se permiten hasta 10 numeros')
+  	Telefono=input('Ingrese numero de telefono')
+  Email=input('Ingrese numero de email')
+  while not isEmail():
+  	print('Direccion de mail no valida')
+  	Email=input('Ingrese numero de email')
+  dic=self.genDic(NomUsuario,Contrasenia,Nombre,Apellido,Direccion,Telefono,Email)
   ops=self.ops('desea \n c-confirmar  de cliente? \n x-cancelar operacion? ','c','x')
   if (ops=='c'):
    try:
