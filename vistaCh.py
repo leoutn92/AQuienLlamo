@@ -10,7 +10,7 @@ class Vista:
   for i in keys:
    print('ingrese %s '%i)
    ndic[i]=input()
-  return ndic
+  return ndic   
  def ops(self,a,*args):
   ops=input(a)
   while not ( ops in args):
@@ -27,30 +27,30 @@ class Vista:
    listar(ops)
   return lista[ops-1]
 class VistaPrincipal(Vista):
- def registrarCliente(self):
-  print('Bienvenido al registro de clientes de A Quien Llamo')
-  NomUsuario=input('Ingrese nombre usuario: ')
-  Contrasenia=input('Ingrese contrasenia usuario: ')
-  Nombre=input('Ingrese nombre: ')
-  while not Nombre.isalpha():
+ def cargarUser(self):
+  dic=dict()
+  dic['NomUsuario']=input('Ingrese nombre usuario: ')
+  dic['Contrasenia']=input('Ingrese contrasenia usuario: ')
+  dic['Nombre']=input('Ingrese nombre: ')
+  while not dic['Nombre'].isalpha():
   	print('Solo se permiten letras')
-  	Nombre=input('Ingrese nombre: ')
-  Apellido=input('Ingrese Apellido: ')
-  while not Apellido.isalpha():
+  	dic['Nombre']=input('Ingrese nombre: ')
+  dic['Apellido']=input('Ingrese Apellido: ')
+  while not dic['Apellido'] .isalpha ():
   	print('Solo se permiten letras')
-  	Apellido=input('Ingrese Apellido: ')
-  Pais=input('Ingrese pais: ')
-  while not Pais.isalpha():
+  	dic['Apellido'] =input('Ingrese Apellido: ')
+  dic['Pais']=input('Ingrese pais: ')
+  while not dic['Pais'].isalpha():
   	print('Solo se permiten letras')
-  	Pais=input('Ingrese pais: ')
-  Provincia=input('Ingrese provincia: ')
-  while not Provincia.isalpha():
+  	dic['Pais'] =input('Ingrese pais: ')
+  dic['Provincia']=input('Ingrese provincia: ')
+  while not dic['Provincia'].isalpha():
   	print('Solo se permiten letras')
-  	Provincia=input('Ingrese provincia: ')
-  Localidad=input('Ingrese localidad: ')
-  while not Localidad.isalpha():
+  	dic['Provincia'] =input('Ingrese provincia: ')
+  dic['Localidad']=input('Ingrese localidad: ')
+  while not dic['Localidad'] .isalpha():
   	print('Solo se permiten localidad')
-  	Localidad=input('Ingrese localidad: ')
+  	dic['Localidad'] =input('Ingrese localidad: ')
   Calle=input('Ingrese direccion: ')
   while not Calle.isalpha():
   	print('Solo se permiten letras')
@@ -60,20 +60,26 @@ class VistaPrincipal(Vista):
   while not Numero.isdigit():
   	print('Solo se permiten nomeros')
   	Numero=input('Ingrese numero: ')
-  Direccion=Direccion+' '+Numero
+  dic['Direccion']=Direccion+' '+Numero
   ops=self.ops('Desea ingrezar piso? (si/no)','si','no')
   if ops=='si':
   	piso=input('Ingrese piso: ')
-  	Direccion=Direccion+' '+piso
-  Telefono=input('Ingrese numero de telefono: ')
-  while not (self.isTelephone(Telefono)):
+  	dic['Direccion'] = dic['Direccion'] +' '+piso
+  dic['Telefono']=input('Ingrese numero de telefono: ')
+  while not (self.isTelephone(dic['Telefono'])):
   	print('Solo se permiten hasta 10 numeros')
-  	Telefono=input('Ingrese numero de telefono: ')
-  Email=input('Ingrese email: ')
-  while not self.isEmail(Email):
+  	dic['Telefono']=input('Ingrese numero de telefono: ')
+  dic['Email']=input('Ingrese email: ')
+  while not self.isEmail(dic['Email']):
   	print('Direccion de mail no valida')
-  	Email=input('Ingrese email')
-  dic=self.genDic(NomUsuario,Contrasenia,Nombre,Apellido,Direccion,Telefono,Email)
+  	dic['Email']=input('Ingrese email: ')
+  return dic
+ def cargarCliente(self):
+  dic=self.cargarUser()
+  return dic
+ def registrarCliente(self):
+  print('Bienvenido al registro de clientes de A Quien Llamo')
+  dic=self.cargarCliente()
   ops=self.ops('desea \n c-confirmar  de cliente? \n x-cancelar operacion? ','c','x')
   if (ops=='c'):
    try:
