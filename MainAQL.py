@@ -1,5 +1,6 @@
 import datetime
 from usuario import *
+from pedidos import *
 from Excepsiones import*
 class Main:
 	def __init__(self):
@@ -52,7 +53,7 @@ class Main:
 	   return i
 	 return None
 	def buscarCliente(self,cliente):
-	 cliente=buscarCliente(cliente)
+	 cliente=self.buscarUser(cliente)
 	 if cliente!=None:
 	  if cliente.isCliente():
 	   return cliente
@@ -82,7 +83,7 @@ class Main:
 	   if i['proveedor']==prov:
 	    servicios=i['servicios']
 	    for j in servicios:
-	     if (j.categoria==cat)
+	     if (j.categoria==cat):
 	      return j
 	    return None
 	def buscarServXCat(self,cat):
@@ -126,7 +127,7 @@ class Main:
 	 pedido=Pedido(dic)
 	 cliente=self.buscarCliente(cliente)
 	 proveedor=self.buscarProv(proveedor)
-	 servicio=self.buscarServProv(proveedor,categoria)
+	 servicio=self.verServProv(proveedor,categoria)
 	 if ((servicio!=None)and(cliente!=None)):
 	  dic=dict()
 	  dic['servicio']=servicio
