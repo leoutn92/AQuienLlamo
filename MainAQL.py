@@ -108,4 +108,36 @@ class Main:
 	 Servicio.categorias.append(cat)
 	def agregarServicio(self,prov,cat):
 	 objProv=self.buscarProv(prov)
+<<<<<<< HEAD
 	 servicios=self.
+=======
+	 servicios=self.verServProv(objProv)
+	 if servicios==None:
+	  dicServ=dict()
+	  dicServ['proveedor']=objProv
+	  servicio=Servicio(cat)
+	  dicServ['servicios']=[servicio]
+	  self.servXprov.append(dicServ)
+	 else:
+	  for i in servicios:
+	   if(i.categoria==cat):
+	    raise MiError('servicio ya cargado')
+	   servicio=Servicio(cat)
+	   self.servicios.append(servicio)
+	def mostrarUsuarios(self):
+	 print (self.usuarios)
+	def agregarPedido(self,dic,cliente,proveedor,categoria):
+	 pedido=Pedido(dic)
+	 cliente=self.buscarCliente(cliente)
+	 proveedor=self.buscarProv(proveedor)
+	 servicio=self.verServProv(proveedor,categoria)
+	 if ((servicio!=None)and(cliente!=None)):
+	  dic=dict()
+	  dic['servicio']=servicio
+	  dic['cliente']=cliente
+	  dic['pedido']=pedido
+	  self.pedidos.append(dic)
+	 
+	 
+   
+>>>>>>> 80a147fa562aaa0581335212716e1a81a0efe2fc
