@@ -1,6 +1,8 @@
 import re
 from MainAQL import *
 class Vista:
+ def isCUIL(self,a):
+  return (a.isdigit() and (len(a)==11))
  def isTelephone(self,a):
   return (a.isdigit() & (len(a)==10))
  def isEmail(self,a):
@@ -26,7 +28,6 @@ class Vista:
   while not (ops in range(1,j)):
    listar(ops)
   return lista[ops-1]
-class VistaPrincipal(Vista):
  def cargarUser(self):
   dic=dict()
   dic['NomUsuario']=input('Ingrese nombre usuario: ')
@@ -37,7 +38,7 @@ class VistaPrincipal(Vista):
   	dic['Nombre']=input('Ingrese nombre: ')
   dic['Apellido']=input('Ingrese Apellido: ')
   while not dic['Apellido'] .isalpha ():
-  	print('Solo se permiten letras')
+  	print('Solo se permiten ')
   	dic['Apellido'] =input('Ingrese Apellido: ')
   dic['Pais']=input('Ingrese pais: ')
   while not dic['Pais'].isalpha():
@@ -77,6 +78,15 @@ class VistaPrincipal(Vista):
  def cargarCliente(self):
   dic=self.cargarUser()
   return dic
+ def cargarProveedor(self):
+  dic=self.cargarUser()
+  dic['NomEmpresa']=input('ingrese nombre de empresa')
+  dic['CUIL']=input('ingrese CUIL')
+  while not self.isCUIL(dic['CUIL']):
+   print('el cuil es un campo numerico de 11 digitos')
+   dic['CUIL']=input('ingrese CUIL')
+  return dic
+class VistaPrincipal(Vista):
  def registrarCliente(self):
   print('Bienvenido al registro de clientes de A Quien Llamo')
   dic=self.cargarCliente()
@@ -87,6 +97,7 @@ class VistaPrincipal(Vista):
     print('cliente agregado exitosamente')
    except:
     print('ya existe este nombre de usuario')
+ 
  def registrarServicios(self,prov):
   print('al registrarte como proveedor necesitas agregar los servicios que brindas')
   categorias=self.main.verCateServ()
@@ -96,25 +107,26 @@ class VistaPrincipal(Vista):
   ops=self.listar('estas son algunas de los servicios que brindan otros proveedores de AQL',lista)
   if (ops in categorias):
    try:
-    self.main.agregarServicio(prov,categorias[ops-1])
+    self.main.agregarServicio(prov,ops)
     print('servicio agregado exitosamente')
-    ops=self.ops('Desea agregar otro servicio?(si\no) ','si','no')
+    ops=self.ops('Desea agregar otro servicio?(si\no) \n','si','no')
     if ops=='si':
-     self.agregarServicios(prov)
+     self.registrarServicios(prov)
    except MiError as e:
     print(e)
-    self.agregarServicios(prov)
+    self.registrarServicios(prov)
   else:
    cate=input('ingrese nueva categoria: ')
    try:
     self.main.agregarCategoria(cate)
     print('categoria agregada exitosamente')
+    self.registrarServicios(prov)
    except MiError as e:
     print(e)
-    self.agregarServicios(prov)       
+    self.registrarServicios(prov)       
  def registrarProv(self):
   print('Bienvenido al registro de proveedores de A Quien Llamo')
-  dic=self.genDic('NomUsuario','Contrasenia','Nombre','Apellido','Direccion','Telefono','Email','NomEmpresa','CUIL')
+  dic=self.cargarProveedor()  
   ops=self.ops('desea \n c-confirmar datos de Proveedor? \n x-cancelar operacion? \n','c','x')
   if (ops=='c'):
    try:
