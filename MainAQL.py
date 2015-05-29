@@ -108,9 +108,6 @@ class Main:
 	 Servicio.categorias.append(cat)
 	def agregarServicio(self,prov,cat):
 	 objProv=self.buscarProv(prov)
-<<<<<<< HEAD
-	 servicios=self.
-=======
 	 servicios=self.verServProv(objProv)
 	 if servicios==None:
 	  dicServ=dict()
@@ -143,9 +140,12 @@ class Main:
 	  dic['pedido']=pedido
 	  self.pedidos.append(dic)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 	 
 	 
    
 >>>>>>> 80a147fa562aaa0581335212716e1a81a0efe2fc
 >>>>>>> 373ca46b5dc5b7f82963299abd68f7ce7e9f79a0
+=======
+>>>>>>> 2317fc14252f2eba0ef30d378739782d86b3a566
