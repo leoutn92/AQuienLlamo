@@ -1,10 +1,12 @@
 import datetime
 from usuario import *
+from pedidos import *
 from Excepsiones import*
 class Main:
 	def __init__(self):
 		self.usuarios=[]
 		self.servXprov=[]
+		self.pedidos=[]
 		self.cargarUsuarios()
 	def cargarUsuarios(self):
 	 dic=dict()
@@ -50,6 +52,12 @@ class Main:
 	  if (i.NomUsuario==user):
 	   return i
 	 return None
+	def buscarCliente(self,cliente):
+	 cliente=self.buscarUser(cliente)
+	 if cliente!=None:
+	  if cliente.isCliente():
+	   return cliente
+	 return None
 	def buscarProv(self,prov):
 	 prove=self.buscarUser(prov)
 	 if prove!=None:
@@ -63,12 +71,21 @@ class Main:
 	  return 'cliente'
 	 elif user.isProveedor():
 	  return 'proveedor'
-	def verServProv(self,prov):
-	 for i in self.servXprov:
-	  if i['proveedor']==prov:
-	   servicios=i['servicios']
-	   return servicios
-	 return None
+	def verServProv(self,prov,cat=None):
+	 if cat==None:
+	  for i in self.servXprov:
+	   if i['proveedor']==prov:
+	    servicios=i['servicios']
+	    return servicios
+	  return None
+	 else:
+	  for i in self.servXprov:
+	   if i['proveedor']==prov:
+	    servicios=i['servicios']
+	    for j in servicios:
+	     if (j.categoria==cat):
+	      return j
+	    return None
 	def buscarServXCat(self,cat):
 	 busqueda=[]
 	 servicios=self.servXprov
@@ -106,3 +123,14 @@ class Main:
 	   self.servicios.append(servicio)
 	def mostrarUsuarios(self):
 	 print (self.usuarios)
+	def agregarPedido(self,dicPedido,cliente,proveedor,categoria):
+	 pedido=Pedido(dicPedido)
+	 cliente=self.buscarCliente(cliente)
+	 proveedor=self.buscarProv(proveedor)
+	 servicio=self.verServProv(proveedor,categoria)
+	 if ((servicio!=None)and(cliente!=None)):
+	  dic=dict()
+	  dic['servicio']=servicio
+	  dic['cliente']=cliente
+	  dic['pedido']=pedido
+	  self.pedidos.append(dic)
