@@ -123,13 +123,8 @@ class Main:
 	   self.servicios.append(servicio)
 	def mostrarUsuarios(self):
 	 print (self.usuarios)
-<<<<<<< HEAD
-	def agregarPedido(self,dicPedido,cliente,proveedor,categoria):
+        def agregarPedido(self,dicPedido,cliente,proveedor,categoria):
 	 pedido=Pedido(dicPedido)
-=======
-	def agregarPedido(self,dic,cliente,proveedor,categoria):
-	 pedido=Pedido(dic)
->>>>>>> 373ca46b5dc5b7f82963299abd68f7ce7e9f79a0
 	 cliente=self.buscarCliente(cliente)
 	 proveedor=self.buscarProv(proveedor)
 	 servicio=self.verServProv(proveedor,categoria)
@@ -139,13 +134,3 @@ class Main:
 	  dic['cliente']=cliente
 	  dic['pedido']=pedido
 	  self.pedidos.append(dic)
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-	 
-	 
-   
->>>>>>> 80a147fa562aaa0581335212716e1a81a0efe2fc
->>>>>>> 373ca46b5dc5b7f82963299abd68f7ce7e9f79a0
-=======
->>>>>>> 2317fc14252f2eba0ef30d378739782d86b3a566
