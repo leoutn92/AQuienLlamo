@@ -14,11 +14,18 @@ class VistaPrincipal(Vista):
  def registrarServicios(self,prov):
   print('al registrarte como proveedor necesitas agregar los servicios que brindas')
   categorias=self.main.verCateServ()
+<<<<<<< HEAD
   opsiones=list()
   opsiones.extend(categorias)
   opsiones.append('mi servicio no entra en ninguna de esas categorias')
   titulo='estas son algunas de los servicios que brindan otros proveedores de AQL'
   ops=self.menu(titulo,lista)
+=======
+  lista=list()
+  lista.extend(categorias)
+  lista.append('mi servicio no entra en ninguna de esas categorias')
+  ops=self.listar('estas son algunas de los servicios que brindan otros proveedores de AQL',lista)
+>>>>>>> 373ca46b5dc5b7f82963299abd68f7ce7e9f79a0
   if (ops in categorias):
    try:
     self.main.agregarServicio(prov,ops)
