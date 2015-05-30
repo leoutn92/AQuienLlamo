@@ -1,8 +1,5 @@
 import re
-<<<<<<< HEAD
 import datetime
-=======
->>>>>>> 373ca46b5dc5b7f82963299abd68f7ce7e9f79a0
 from MainAQL import *
 class Vista:
  def isCUIL(self,a):
@@ -22,11 +19,7 @@ class Vista:
   while not ( ops in args):
    ops=input(a)
   return ops
-<<<<<<< HEAD
  def menu(self,tit,lista):
-=======
- def listar(self,tit,lista):
->>>>>>> 373ca46b5dc5b7f82963299abd68f7ce7e9f79a0
   print(tit)
   j=1
   for i in lista:
@@ -93,7 +86,6 @@ class Vista:
   while not self.isCUIL(dic['CUIL']):
    print('el cuil es un campo numerico de 11 digitos')
    dic['CUIL']=input('ingrese CUIL')
-<<<<<<< HEAD
   return dic
  def cargardigitos(self,mensaje):
   dig=input(mensaje)
@@ -111,8 +103,3 @@ class Vista:
    hora=self.cargardigitos('ingrese hora: ')
    fecha=datetime.datetime(anio,mes,dia,hora)
   return fecha
- 
-   
-=======
-  return dic  
->>>>>>> 373ca46b5dc5b7f82963299abd68f7ce7e9f79a0

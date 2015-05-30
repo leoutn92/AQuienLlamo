@@ -123,7 +123,7 @@ class Main:
 	   self.servicios.append(servicio)
 	def mostrarUsuarios(self):
 	 print (self.usuarios)
-        def agregarPedido(self,dicPedido,cliente,proveedor,categoria):
+	def agregarPedido(self,dicPedido,cliente,proveedor,categoria):
 	 pedido=Pedido(dicPedido)
 	 cliente=self.buscarCliente(cliente)
 	 proveedor=self.buscarProv(proveedor)
