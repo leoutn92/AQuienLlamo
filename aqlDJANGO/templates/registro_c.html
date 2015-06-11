@@ -14,41 +14,44 @@ body{
 	<h1>Registro de clientes</h1>
 	<form action="/AQuienLlamo/register/cli" method="get">
 	usuario:
-	<input type="text" name="usuario" value=" "/><br/>
+	<input type="text" name="usuario" value=" " required/><br/>
+	{{errorUser}}<br/>
 	contrasenia:
-	<input type="password" name="contrasenia" value=""/><br/>
+	<input type="password" name="contrasenia" value="" required/><br/>
 	nombre:
-	<input type="text" name="nombre" value=" "/><br/>
+	<input type="text" name="nombre" value=" " required/><br/>
 	apellido:
-	<input type="text" name="apellido" value=""/><br/>
+	<input type="text" name="apellido" value="" required/><br/>
 	telefono:
-	<input type="text" name="telefono" value=" "/><br/>
+	<input type="text" name="telefono" value=" " required pattern="[0-9]{10}"/><br/>
 	direccion:
-	<input type="text" name="direccion" value=" "/><br/>
+	<input type="text" name="direccion" value=" " required/><br/>
 	email:
-	<input type="text" name="email" value=""/><br/>
+	<input type="email" name="email" value="" required/><br/>
 	<input type="submit" value="Registrarme"/>
 	</form>
 	<h1>Registro de proveedores</h1>
 	<form action="/AQuienLlamo/register/prov" method="get">
 	usuario:
-	<input type="text" name="usuario:" value=" "/><br/>
+	<input type="text" name="usuario" value=" " required/><br/>
+	{{errorUser0}}<br/>
 	contrasenia:
-	<input type="password" name="contrasenia" value=""/><br/>
+	<input type="password" name="contrasenia" value="" required/><br/>
 	nombre:
-	<input type="text" name="nombre" value=" "/><br/>
+	<input type="text" name="nombre" value=" " required/><br/>
 	apellido:
-	<input type="text" name="apellido" value=""/><br/>
+	<input type="text" name="apellido" value="" required/><br/>
 	telefono:
-	<input type="text" name="telefono" value=" "/><br/>
+	<input type="text" name="telefono" value=" " required pattern="[0-9]{10}"/><br/>
 	direccion:
-	<input type="text" name="direccion" value=" "/><br/>
+	<input type="text" name="direccion" value=" " required/><br/>
 	email:
-	<input type="text" name="email" value=""/><br/>
+	<input type="email" name="email" value="" required/><br/>
 	nombre empresa:
-	<input type="text" name="nomEmpresa" value=" "/><br/>
+	<input type="text" name="nomEmpresa" value=" " required/><br/>
+	{{errorEmpresa}}<br/>
 	cuil:
-	<input type="text" name="cuil" value=""/><br/>
+	<input type="text" name="cuil" value="" required pattern="[0-9]{11}"/><br/>
 	<input type="submit" value="Registrarme"/>
 	</form>
 </body>
