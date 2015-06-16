@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.conf.urls.static import static
 from register import *
 urlpatterns = [
     url(r'^AQuienLlamo/$',include('welcome.urls')),
-    url(r'^AQuienLlamo/register',include('register.urls')),
-    
+    url(r'^AQuienLlamo/register',include('register.urls')),   
 ]

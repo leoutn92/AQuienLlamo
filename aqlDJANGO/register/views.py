@@ -1,38 +1,37 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response,render
 from django.template.context_processors import csrf
 from register.models import Usuario,Cliente,Proveedor
 def register(request):
-    return render_to_response('registro_c.html')
-def validCli(request,nomUsuario):
+    return render(request,'registro_r.html')
+def register_cli(request):
+	if request.method == 'POST':
+		print ('es post')
+	nomUsuario=request.POST['usuario']
+	contrasenia=request.POST['contrasenia']
+	nombre=request.POST['nombre']
+	apellido=request.POST['apellido']
+	direccion=request.POST['direccion']
+	telefono=request.POST['telefono']
 	query=Usuario.objects.filter(usuario=nomUsuario)
 	if query:
-		return render_to_response('registro_c.html',{'errorUser':'El usuario ya existe'})
-def register_cli(request):
-	nomUsuario=request.GET['usuario']
-	contrasenia=request.GET['contrasenia']
-	nombre=request.GET['nombre']
-	apellido=request.GET['apellido']
-	direccion=request.GET['direccion']
-	telefono=request.GET['telefono']
-	validCli(request,nomUsuario)
+		return render(request,'registro_r.html')
 	usuario=Usuario(usuario=nomUsuario,contrasenia=contrasenia)
 	usuario.save()
 	cliente=Cliente(usuario=usuario,nombre=nombre,apellido=apellido,direccion=direccion,telefono=telefono)
 	cliente.save()
-	return render_to_response('registroExitoso.html')
+	return render(request,'registroExitoso.html')
 def register_prov(request):
-	nomUsuario=request.GET['usuario']
-	contrasenia=request.GET['contrasenia']
-	nombre=request.GET['nombre']
-	apellido=request.GET['apellido']
-	direccion=request.GET['direccion']
-	telefono=request.GET['telefono']
-	cuil=request.GET['cuil']
-	nomEmp=request.GET['nomEmpresa']
-	validCli(request,nomUsuario)
+	nomUsuario=request.GET['usuarioP']
+	contrasenia=request.GET['contraseniaP']
+	nombre=request.GET['nombreP']
+	apellido=request.GET['apellidoP']
+	direccion=request.GET['direccionP']
+	telefono=request.GET['telefonoP']
+	cuil=request.GET['cuilP']
+	nomEmp=request.GET['nomEmpresaP']
 	query=Usuario.objects.filter(usuario=nomUsuario)
 	if query:
-		return render_to_response('registro_c.html',{'errorUser0':'El usuario ya existe','errorEmpresa':'la empresa ya existe'})
+		return render(request,'registro_r.html',{'errorUser0':'El usuario ya existe','errorEmpresa':''})
 	usuario=Usuario(usuario=nomUsuario,contrasenia=contrasenia)
 	usuario.save()
 	cliente=Cliente(usuario=usuario,nombre=nombre,apellido=apellido,direccion=direccion,telefono=telefono)
@@ -40,6 +39,6 @@ def register_prov(request):
 	prov=Proveedor(cliente=cliente,nomEmpresa=nomEmp,CUIL=cuil)
 	query=Proveedor.objects.filter(nomEmpresa=nomEmp)
 	if query:
-		return render_to_response('registro_c.html',{'errorEmpresa':'la empresa ya existe','errorUser0':' '})
+		return render(request,'registro_r.html',{'errorEmpresa':'la empresa ya existe','errorUser0':' '})
 	prov.save()
-	return render_to_response('registroExitoso.html')
+	return render(request,'registroExitoso.html')

@@ -12,7 +12,7 @@ body{
 </head>
 <body>
 	<h1>Registro de clientes</h1>
-	<form action="/AQuienLlamo/register/cli" method="get">
+	<form action="register/cli/" method="POST">{% csrf_token %}
 	usuario:
 	<input type="text" name="usuario" value=" " required/><br/>
 	{{errorUser}}<br/>
@@ -33,25 +33,25 @@ body{
 	<h1>Registro de proveedores</h1>
 	<form action="/AQuienLlamo/register/prov" method="get">
 	usuario:
-	<input type="text" name="usuario" value=" " required/><br/>
+	<input type="text" name="usuarioP" value=" " required/><br/>
 	{{errorUser0}}<br/>
 	contrasenia:
-	<input type="password" name="contrasenia" value="" required/><br/>
+	<input type="password" name="contraseniaP" value="" required/><br/>
 	nombre:
-	<input type="text" name="nombre" value=" " required/><br/>
+	<input type="text" name="nombreP" value=" " required/><br/>
 	apellido:
-	<input type="text" name="apellido" value="" required/><br/>
+	<input type="text" name="apellidoP" value="" required/><br/>
 	telefono:
-	<input type="text" name="telefono" value=" " required pattern="[0-9]{10}"/><br/>
+	<input type="text" name="telefonoP" value=" " required pattern="[0-9]{10}"/><br/>
 	direccion:
-	<input type="text" name="direccion" value=" " required/><br/>
+	<input type="text" name="direccionP" value=" " required/><br/>
 	email:
-	<input type="email" name="email" value="" required/><br/>
+	<input type="email" name="emailP" value="" required/><br/>
 	nombre empresa:
-	<input type="text" name="nomEmpresa" value=" " required/><br/>
+	<input type="text" name="nomEmpresaP" value=" " required/><br/>
 	{{errorEmpresa}}<br/>
 	cuil:
-	<input type="text" name="cuil" value="" required pattern="[0-9]{11}"/><br/>
+	<input type="text" name="cuilP" value="" required pattern="[0-9]{11}"/><br/>
 	<input type="submit" value="Registrarme"/>
 	</form>
 </body>
