@@ -142,6 +142,7 @@
     <!-- Todos los plugins JavaScript de Bootstrap (también puedes
          incluir archivos JavaScript individuales de los únicos
          plugins que utilices) -->
-    <script src="js/bootstrap.min.js"></script>
+    {% load staticfiles %}
+    <script src="{% static 'js/bootstrap.min.js'%}" ></script>
   </body>
 </html>

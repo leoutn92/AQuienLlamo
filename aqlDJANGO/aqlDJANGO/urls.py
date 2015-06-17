@@ -19,5 +19,6 @@ from django.conf.urls.static import static
 from register import *
 urlpatterns = [
     url(r'^AQuienLlamo/$',include('welcome.urls')),
-    url(r'^AQuienLlamo/register',include('register.urls')),   
+    url(r'^AQuienLlamo/register',include('register.urls')),
+    url(r'^AQuienLlamo/login$',include('login.urls')),
 ]
