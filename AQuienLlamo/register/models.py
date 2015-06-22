@@ -10,7 +10,7 @@ class Cliente(models.Model):
 	direccion=models.CharField(max_length=30)
 	telefono=models.IntegerField()
 class Proveedor(models.Model):
-	cliente=models.ForeignKey(Cliente)
+	cliente=models.ForeignKey(Cliente,unique=True)
 	nomEmpresa=models.CharField(max_length=30,unique=True)
 	CUIL=models.IntegerField()
 admin.site.register(Usuario)
