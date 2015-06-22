@@ -46,3 +46,9 @@ def register_prov(request):
 		prov.save()
 		return render(request,'registroExitoso.html')
 	return render(request,'register_p.html')
+	
+	class RegServicio(CreateView):
+	template_name = 'quienllamo/regServicio.html'
+	model = Servicio
+	fields=['categoria','descripcion','precioBase', 'estado']
+	success_url = reverse_lazy('exito')	
