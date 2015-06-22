@@ -17,8 +17,12 @@ class Proveedor(models.Model):
 	CUIL=models.IntegerField()
 class Categoria (models.Model):
 	descripcion=models.CharField(max_length=50)
+	def __str__(self):
+		return self.descripcion
 class Estado (models.Model):
 	descripcion=models.CharField(max_length=50)
+	def __str__(self):
+		return self.descripcion
 class Servicio (models.Model):
 	proveedor=models.ForeignKey(Proveedor)
 	descripcion=models.CharField(max_length=50)
@@ -36,3 +40,4 @@ admin.site.register(Proveedor)
 admin.site.register(Estado)
 admin.site.register(Servicio)
 admin.site.register(Pedido)
+admin.site.register(Categoria)
