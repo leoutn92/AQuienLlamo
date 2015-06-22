@@ -57,34 +57,16 @@
                           </form>
                           <ul class="nav navbar-nav navbar-right">
                           <li><a href="#">Usuario</a></li>
-                          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Mi cuenta <span class="caret"></span></a>
+                          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">perfil:<span class="caret"></span></a>
                           <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Action</a></li>
-                          <li><a href="#">Another action</a></li>
-                          <li><a href="#">Something else here</a></li>
-                          <li class="divider"></li>
-                          <li><a href="#">Separated link</a></li>
+                          <li><a href="#">Cliente</a></li>
+                          <li><a href="#">Proveedor</a></li>
                           </ul>         </li>       </ul>
 
                           </div><!-- /.navbar-collapse -->
                           </div><!-- /.container-fluid --> </nav>
                           </header>
                         </div>
-						<form class="form-horizontal" action="/AQuienLlamo/register/cli" method="GET">{% csrf_token %}
-						  </div>
-						  <div class="form-group">
-						    <div class="col-sm-offset-2 col-sm-5">
-						      <button type="submit" class="btn btn-primary">Quiero ser proveedor</button>
-						    </div>
-						  </div>
-						</form>
-						<form action="/AQuienLlamo/register/prov" metrhod="GET">
-						<div class="form-group">
-						<div class="col-sm-offset-2 col-sm-5">
-						<button type="submit" class="btn btn-primary">Buscar servicios</button>
-						</div>
-						</div>
-						</form>
 						<form class="form-horizontal" action="/AQuienLlamo/register/cli" method="GET">{% csrf_token %}
 						  </div>
 						  <div class="form-group">
@@ -96,18 +78,25 @@
 						<form action="/AQuienLlamo/register/prov" metrhod="GET">
 						<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-5">
-						<button type="submit" class="btn btn-primary">Lo Quiero Ya</button>
+						<button type="submit" class="btn btn-primary">Ver ranking</button>
 						</div>
 						</div>
 						</form>
-						<form class="form-horizontal" action="/AQuienLlamo/register/cli" method="GET">{% csrf_token %}
-						  </div>
-						  <div class="form-group">
-						    <div class="col-sm-offset-2 col-sm-5">
-						      <button type="submit" class="btn btn-primary">Modificar datos de Perfil</button>
-						    </div>
-						  </div>
-						</form>
+            <form class="form-horizontal" action="/AQuienLlamo/register/cli" method="GET">{% csrf_token %}
+            </div>
+            <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-5">
+            <button type="submit" class="btn btn-primary">Modificar servicios</button>
+            </div>
+            </div>
+            </form>
+            <form action="/AQuienLlamo/register/prov" metrhod="GET">
+            <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-5">
+            <button type="submit" class="btn btn-primary">No estoy atendiendo</button>
+            </div>
+            </div>
+            </form>
 						<form action="/AQuienLlamo/register/prov" metrhod="GET">
 						<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-5">
@@ -124,21 +113,3 @@
     {% load staticfiles %}
     <script src="{% static 'js/bootstrap.min.js'%}" ></script>
   </body>	
-
-<!--<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-	<form class="form-horizontal" action="/AQuienLlamo/register/cli" method="POST">
-	{% csrf_token %}
-	<button type="submit" class="btn btn-primary">Quiero ser proveedor</button>
-	<button type="submit" class="btn btn-primary">Buscar servicios</button>
-	<button type="submit" class="btn btn-primary">Ver pedidos</button>
-	<button type="submit" class="btn btn-primary">Lo Quiero Ya</button>
-	<button type="submit" class="btn btn-primary">Modificar datos de Perfil</button>
-	<button type="submit" class="btn btn-primary">Salir</button>
-	</form>
-</body>
-</html> -->	

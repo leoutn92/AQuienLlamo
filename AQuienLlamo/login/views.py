@@ -11,6 +11,6 @@ def validar(request):
 				cliente=Cliente.objects.get(usuario=usuario)
 				query=Proveedor.objects.filter(cliente=cliente)
 				if query:
-					return render(request,'registroExitoso.html',{'nombre':cliente.nombre})
+					return render(request,'Proveedor.html',{'nombre':cliente.nombre})
 				return render(request,'Cliente.html')
-		return render(request,'auth.html')		
+		return render(request,'auth.html')	

@@ -69,52 +69,86 @@
                           </div><!-- /.navbar-collapse -->
                           </div><!-- /.container-fluid --> </nav>
                           </header>
+                         <h2>Registro de Proveedores</h2>
                         </div>
-						<form class="form-horizontal" action="/AQuienLlamo/register/cli" method="GET">{% csrf_token %}
-						  </div>
-						  <div class="form-group">
-						    <div class="col-sm-offset-2 col-sm-5">
-						      <button type="submit" class="btn btn-primary">Quiero ser proveedor</button>
-						    </div>
-						  </div>
-						</form>
-						<form action="/AQuienLlamo/register/prov" metrhod="GET">
-						<div class="form-group">
-						<div class="col-sm-offset-2 col-sm-5">
-						<button type="submit" class="btn btn-primary">Buscar servicios</button>
-						</div>
-						</div>
-						</form>
-						<form class="form-horizontal" action="/AQuienLlamo/register/cli" method="GET">{% csrf_token %}
-						  </div>
-						  <div class="form-group">
-						    <div class="col-sm-offset-2 col-sm-5">
-						      <button type="submit" class="btn btn-primary">Ver pedidos</button>
-						    </div>
-						  </div>
-						</form>
-						<form action="/AQuienLlamo/register/prov" metrhod="GET">
-						<div class="form-group">
-						<div class="col-sm-offset-2 col-sm-5">
-						<button type="submit" class="btn btn-primary">Lo Quiero Ya</button>
-						</div>
-						</div>
-						</form>
-						<form class="form-horizontal" action="/AQuienLlamo/register/cli" method="GET">{% csrf_token %}
-						  </div>
-						  <div class="form-group">
-						    <div class="col-sm-offset-2 col-sm-5">
-						      <button type="submit" class="btn btn-primary">Modificar datos de Perfil</button>
-						    </div>
-						  </div>
-						</form>
-						<form action="/AQuienLlamo/register/prov" metrhod="GET">
-						<div class="form-group">
-						<div class="col-sm-offset-2 col-sm-5">
-						<button type="submit" class="btn btn-primary">Salir</button>
-						</div>
-						</div>
-						</form>
+
+
+
+
+
+
+
+
+<form class="form-horizontal" action="/AQuienLlamo/register/cli" method="POST">{% csrf_token %}
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Nombre de Usuario</label>
+    <div class="col-sm-5">
+      <input name="usuario" type="text" class="form-control" id="inputEmail3" placeholder="Nombre de Usuario">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-5">
+      <input name="contrasenia" type="password" class="form-control" id="inputPassword3" placeholder="Contraseña">
+    </div>
+  </div>
+  <div class="form-group">
+      <label for="nombre" class="col-sm-2 control-label">Nombre</label>
+      <div class="col-sm-5">
+      <input name="nombre" type="text" class="form-control" id="exampleInputName2" placeholder="Nombre">
+  </div>
+   </div>
+
+  <div class="form-group">
+      <label for="apellido" class="col-sm-2 control-label">Apellido</label>
+      <div class="col-sm-5">
+      <input name="apellido" type="text" class="form-control" id="exampleInputName2" placeholder="Apellido">
+  </div>
+   </div>
+    <div class="form-group">
+      <label for="telefono" class="col-sm-2 control-label">Tel</label>
+      <div class="col-sm-5">
+      <input name="telefono" type="text" class="form-control" id="exampleInputName2" placeholder="3794395153">
+  </div>
+   </div>
+       <div class="form-group">
+      <label for="direccion" class="col-sm-2 control-label">Direccion</label>
+      <div class="col-sm-5">
+      <input name="direccion" type="text" class="form-control" id="exampleInputName2" placeholder="Direccion">
+  </div>
+   </div>
+    <div class="form-group">
+    <label for="email" class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-5">
+      <input name="email" type="email" class="form-control" id="" placeholder="Email@example.com">
+    </div>
+  </div>
+  </div>
+   </div>
+    <div class="form-group">
+    <label for="cuil" class="col-sm-2 control-label">cuil</label>
+    <div class="col-sm-5">
+      <input name="cuil" type="number" class="form-control" id="">
+    </div>
+  </div>
+  </div>
+   </div>
+    <div class="form-group">
+    <label for="nomEmpresa" class="col-sm-2 control-label">Nombre Empresa</label>
+    <div class="col-sm-5">
+      <input name="nomEmpresa" class="form-control" id="">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-5">
+      <button type="submit" class="btn btn-primary">Registrarme</button>
+    </div>
+  </div>
+
+
+
+
+</form>
    </section>
    <!-- Librería jQuery requerida por los plugins de JavaScript -->
     <script src="http://code.jquery.com/jquery.js"></script>
@@ -123,22 +157,5 @@
          plugins que utilices) -->
     {% load staticfiles %}
     <script src="{% static 'js/bootstrap.min.js'%}" ></script>
-  </body>	
-
-<!--<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-	<form class="form-horizontal" action="/AQuienLlamo/register/cli" method="POST">
-	{% csrf_token %}
-	<button type="submit" class="btn btn-primary">Quiero ser proveedor</button>
-	<button type="submit" class="btn btn-primary">Buscar servicios</button>
-	<button type="submit" class="btn btn-primary">Ver pedidos</button>
-	<button type="submit" class="btn btn-primary">Lo Quiero Ya</button>
-	<button type="submit" class="btn btn-primary">Modificar datos de Perfil</button>
-	<button type="submit" class="btn btn-primary">Salir</button>
-	</form>
-</body>
-</html> -->	
+  </body>
+</html>
