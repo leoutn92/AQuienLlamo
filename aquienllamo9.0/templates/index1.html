@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="es" >
+<head>
+  <meta charset="utf-8">
+  <title>A Quien Llamo</title>
+  <meta http-equiv="Refresh" content="/login">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+{% extends "base.html" %}
+{% block content %}
+{{user.username}}
+            <div class="span5">
+                <div class="row-fluid">
+                  <div class="span2"></div>
+                  <div class="span8 registrar">
+                    <legend align="center">Entrar</legend>
+                    {% if user.is_authenticated %}}
+                      <meta http-equiv="refresh" content="url=/AQuienLlamo" />
+             <div class="content-wrapper">
+              <article class="contactForm">
+                      <form action="/AQuienLlamo/register/prov" metrhod="GET">
+                        <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-5">
+                        <button type="submit" class="btn btn-primary">Registrarme Como Proveedor de Servicios</button>
+                        </div>
+                        </div>
+                      </form>
+
+                    <form action="/AQuienLlamo/register/prov" metrhod="GET">
+                      <div class="form-group">
+                      <div class="col-sm-offset-2 col-sm-5">
+                      <button type="submit" class="btn btn-primary">Buscar servicios</button>
+                      </div>
+                      </div>
+                    </form>
+                    <form action="/AQuienLlamo/register/prov" method="GET">
+                      <div class="form-group">
+                      <div class="col-sm-offset-2 col-sm-5">
+                      <button type="submit" class="btn btn-primary">Modificar Datos Personales </button>
+                      </div>
+                      </div>
+                    </form>
+                    <form action="salir" method="GET">
+                      <div class="form-group">
+                      <div class="col-sm-offset-2 col-sm-5">
+                      <button type="submit" class="btn btn-primary">Salir</button>
+                      </div>
+                      </div>
+                    </form>
+                    {% else %}
+                      <div class="control-group">
+                        <label class="control-label" for="inputEmail" >Usuario</label>
+                        <div class="controls">
+                          <input name="username" type="text" id="inputEmail" placeholder="Usuario">
+                        </div>
+                      </div>
+
+                      <div class="control-group">
+                        <label class="control-label" for="inputPassword">Contraseña</label>
+                        <div class="controls">
+                          <input name="password" type="password" id="inputPassword" placeholder="Contraseña">
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <div class="controls">  
+                          <label class="checkbox">
+                          <input type="checkbox">Recordar</label>
+                          <button onclick='window.location.href = "/login"'type="submit" class="btn btn-info">Ingresar</button>
+                          <a href="/registro/" class="reg">Registrarse</a>
+                        </div>  
+                      </div>
+                    {% endif %}  
+                  </div>  
+                  <div class="span2"></div>
+                </div>
+            </div>
+          </article>
+        </div>
+{% endblock %}
+</body>
+</html>

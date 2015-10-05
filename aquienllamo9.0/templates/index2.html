@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<title>A Quien Llamo</title>
+<head>
+<meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+<meta name="viewport" content="user-scalable=yes, width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+</head>
+<body class="bg-white">
+{% extends "base.html" %}
+{% block content %}
+<div id="preloader">
+	<div id="status">&nbsp;</div>
+</div>
+<header><a class="logo"><img src="/static/images/logo.png"> <span>A QUIEN LLAMO</span></a></header>
+<section id="main">
+  <nav class="main">
+    <ul>
+      <li>
+        <div class="bg-turquoise" onClick="window.location.href = '/categories/'"><i class="about-us"></i><span>Categoria de Servicios</span></div>
+      </li>
+      <li>
+        <div class="bg-green" onClick="window.location.href = '/categories/All/'"><i class="portfolio"></i><span>Buscar Profesionales</span></div>
+      </li>
+      <li>
+        <div class="bg-yellow" onClick="window.location.href = '/categories/New/'"><i class="blog"></i><span>Nuevos Anunciantes</span></div>
+      </li>
+       <li>
+        <div class="bg-purple" onClick="window.location.href = '/Faq/'"><i class="faq"></i><span>Preguntas Frecuentes</span></div>
+      </li>
+      <li>
+        <div class="bg-blue" onClick="window.location.href = '/login'"><i class="gallery"></i><span>Iniciar Sesion</span></div>
+      </li>
+
+      <li>
+        <div class="bg-pink" onClick="window.location.href ='/login/registro/'"><i class="contact"></i><span>Registrarse</span></div>
+      </li>
+    </ul>
+  </nav>
+</section>
+{% endblock %}
+</body>
+</html>

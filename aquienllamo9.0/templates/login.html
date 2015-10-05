@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="es" >
+
+<head>
+  <meta charset="utf-8">
+
+
+  <title>A Quien Llamo</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+
+<body>
+{% extends "base.html" %}
+{% block content %}
+<div data-role="page">
+  <div data-role="header">
+
+  </div><!-- /header -->
+
+
+<div class="ui-grid-solo">
+    <div class="content"></div>
+    <div class="imgcenter">
+    <img class="imgcenter" src="/static/themes/logo.png" width="100px" height="100px">
+    </div>
+
+
+<form action="/login/" method="POST"> {% csrf_token %}
+    <ul data-role="listview" data-inset="true">
+        <li class="ui-field-contain">
+            <input placeholder="Usuario" type="text" name="User" id="name2" value="" data-clear-btn="true">
+            <input placeholder="Contraseña" type="password" name="Pass" id="name2" value="" data-clear-btn="true">
+        <li class="ui-body ui-body-b">
+            <fieldset class="ui-grid-a">
+            <div class="ui-block-solo"><button type="submit" class="ui-btn ui-corner-all ui-btn-a">Entrar</button></div>
+        
+            </fieldset>
+ 
+<li>
+<div class="ui-grid-solo">
+    <div class="content"></div>
+    <div class="imgcenter">
+    <img class="imgcenter" src="/static/themes/Facebook.png">
+    <img class="imgcenter" src="/static/themes/Twitter.png">
+    <img class="imgcenter" src="/static/themes/GooglePlus.png">
+  </div>
+  </li>   
+        </li>
+</li>
+
+</ul>
+</form>
+<a href="crud.html">Añadir Cuenta</a>
+
+
+
+
+
+
+    </div>
+  </div><!-- /content -->
+
+  <div data-role="footer">
+    <h4>Desing by Sigma Company</h4>
+  </div><!-- /footer -->
+</div><!-- /page -->
+{% endblock %}
+</body>
+</html>

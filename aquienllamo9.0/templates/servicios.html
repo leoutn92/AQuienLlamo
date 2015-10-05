@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" >
+
+<head>
+  <meta charset="utf-8">
+
+
+  <title>A Quien Llamo</title>
+  <!--
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="themes/aquienllamo.css" />
+  <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  -->
+
+</head>
+<body>
+{% extends "base.html" %}
+{% block content %}
+<div data-role="header">
+<h1 class="ui-btn-active">SERVICIOS</h1>
+    <a href="#" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-gear ">Opciones</a>
+<a href="bienvenidos.html" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-arrow-l ">Volver</a>
+</div>
+
+<ul data-role="listview" data-filter="true" data-filter-placeholder="Buscar Servicios" data-inset="true">
+    <li>
+        <a href="#" onclick='window.location.href = "category"' >Buscar por categoria</a>
+    </li>
+    <li><a href="xnombre.html">Buscar por nombre</a></li>
+    <li><a href="#">Ultimas Busquedas</a></li>
+    <li><a href="#">Nuevos Anuciantes</a></li>
+
+
+</ul>
+
+
+
+<div data-role="footer">
+    <h4>A Quien Llamo</h4>
+  </div><!-- /footer -->
+{% endblock %}
+</body>
+</html>

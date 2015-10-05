@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" >
+
+<head>
+  <meta charset="utf-8">
+  <title>A Quien Llamo</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+{% extends "base.html" %}
+{% block content %}
+            <ul data-role="listview" data-inset="true"> 
+            <h1> {{NameService}} </h1>
+            <li><a href="#">
+            <p><h6>PARA PODER COMENTAR NECESITAS ESTAR LOGUEADO</h6></p>
+              </a>  
+            </li>
+            <li>
+            <a onclick='window.location.href = "{{URL}}"'>Volver</a>
+            </li>
+            <li>
+            <a onclick='window.location.href = "/login/registro/"'>Regístrate ahora</a>
+            </li>
+            <li>
+            <a onclick='window.location.href = "/login/"'>Login</a>
+            </li>
+        </ul>
+        </div>
+    <div data-role="footer">
+    <h4>A Quien Llamo</h4>
+  </div><!-- /footer -->
+  {% endblock %}
+</body>
+</html>
